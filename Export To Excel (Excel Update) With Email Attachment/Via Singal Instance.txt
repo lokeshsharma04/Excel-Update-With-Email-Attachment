@@ -1,0 +1,17 @@
+codeunit 70103 "Temp Excel Buffer SI"
+{
+    SingleInstance = true;
+
+    procedure SetTempexcelbuffercustomerlist(var p_TempExcelBuffer: Record "Excel Buffer" temporary)
+    begin
+        g_ExcelBuffer.Copy(p_TempExcelBuffer, true);
+    end;
+
+    procedure GetTempexcelbuffercustomerlist(var p_TempExcelBuffer: Record "Excel Buffer" temporary)
+    begin
+        p_TempExcelBuffer.Copy(g_ExcelBuffer, true);
+    end;
+
+
+    var
+        g_ExcelBuffer: Record "Excel Buffer" temporary;
